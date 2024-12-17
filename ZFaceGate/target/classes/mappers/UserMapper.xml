@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.gaocon.mappers.UserMapper">
+
+	<select id="findEmpNumFromRequest" parameterType="String" resultType="String">
+		SELECT emp_number FROM emp_info WHERE emp_number = #{empNumber}
+	</select>
+	
+	<insert id="insertUserInfoBySignup" parameterType="SignupDTO">
+	
+	INSERT 
+			INTO emp_info(
+				  client_comp_id
+				, emp_name
+				, emp_number
+				, emp_phone
+			)VALUES(
+			 	  #{clientCompId}
+				, #{empName} 
+				, #{empNumber} 
+				, #{empPhone})
+	
+	</insert>
+	
+
+</mapper>
